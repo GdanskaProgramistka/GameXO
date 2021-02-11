@@ -5,6 +5,10 @@ import java.util.Scanner;
 
 public class Board {
 
+    private int position;
+    boolean inRange;
+    Scanner scan = new Scanner(System.in);
+
     @Override
     public String toString() {
         return "Board{" +
@@ -33,16 +37,18 @@ public class Board {
         for (int i = 0; i < size; i++) {
             xoBoardLine.add("| |");
         }
-
-        /*for (String symbol : xoBoardLine) {
-            System.out.print(symbol);
-        }*/
     }
 
     public void set (int position, String symbol) {
-        xoBoardLine.set(position, symbol);
-        if(position <= 0 || position > xoBoardLine.size()){
-            System.out.println("Position out of range. Enter the correct position");
+        if (position < 0 || position > xoBoardLine.size()-1 ) {
+            inRange = false;
+            //System.out.println("Movement out of range. Repeat your move");
+            //position = scan.nextInt();
+            //xoBoardLine.set(position, symbol);
+        }
+        else{
+            inRange = true;
+            xoBoardLine.set(position, symbol);
         }
     }
 }

@@ -5,6 +5,7 @@ public class Player {
 
     private final String playerName;
     private final Symbol symbol;
+    Scanner scan = new Scanner(System.in);
 
     public Player(String playerName, Symbol symbol) {
         this.playerName = playerName;
@@ -12,7 +13,16 @@ public class Player {
     }
 
     public void getMove(Board board, int position){
-        board.set(position, symbol.getSymbol());
+        position = scan.nextInt();
+        if (board.inRange = true) {
+            System.out.println("Give a symbol position.");
+            board.set(position, symbol.getSymbol());
+        }
+        else {
+            System.out.println("Movement out of range. Repeat your move with correct position");
+            position = scan.nextInt();
+            board.set(position, symbol.getSymbol());
+        }
     }
 
     @Override
@@ -28,7 +38,6 @@ public class Player {
     public int hashCode() {
         return Objects.hash(playerName, symbol);
     }
-
 
     @Override
     public String toString() {

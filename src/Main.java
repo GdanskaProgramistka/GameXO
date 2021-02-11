@@ -15,7 +15,7 @@ public class Main {
         currentPlayer.getMove(xoBoardLine, 4);
         currentPlayer = switchPlayer(currentPlayer);
         System.out.println(currentPlayer);
-        currentPlayer.getMove(xoBoardLine, 8);
+        currentPlayer.getMove(xoBoardLine, 34);
         System.out.println(xoBoardLine);
     }
 
