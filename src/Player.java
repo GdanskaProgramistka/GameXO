@@ -12,18 +12,19 @@ public class Player {
         this.symbol = symbol;
     }
 
-    public void getMove(Board board, int position){
-        position = scan.nextInt();
-        if (board.inRange = true) {
-            System.out.println("Give a symbol position.");
-            board.set(position, symbol.getSymbol());
-        }
-        else {
-            System.out.println("Movement out of range. Repeat your move with correct position");
+    public void getMove(Board board) {
+        int position = scan.nextInt();
+        while (!board.set(position, symbol.getSymbol())) {
+            System.out.println("Position out of range. Please enter the correct position");
             position = scan.nextInt();
-            board.set(position, symbol.getSymbol());
+            while(!board.isEmpty(position)){
+                System.out.println("This position is already taken. Chooses the empty position");
+                position = scan.nextInt();
+            }
         }
-    }
+        board.set(position, symbol.getSymbol());
+        }
+
 
     @Override
     public boolean equals(Object o) {

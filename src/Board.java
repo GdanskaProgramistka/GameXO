@@ -39,16 +39,22 @@ public class Board {
         }
     }
 
-    public void set (int position, String symbol) {
+    public boolean set (int position, String symbol) {
         if (position < 0 || position > xoBoardLine.size()-1 ) {
-            inRange = false;
-            //System.out.println("Movement out of range. Repeat your move");
-            //position = scan.nextInt();
-            //xoBoardLine.set(position, symbol);
+            return false;
         }
-        else{
-            inRange = true;
+        else {
             xoBoardLine.set(position, symbol);
+            return true;
         }
     }
+    public boolean isEmpty (int position){
+        if (xoBoardLine.get(position).equals("| |")) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
 }

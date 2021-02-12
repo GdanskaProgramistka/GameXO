@@ -12,10 +12,10 @@ public class Main {
 
         Player currentPlayer = player1;
         System.out.println(currentPlayer);
-        currentPlayer.getMove(xoBoardLine, 4);
+        currentPlayer.getMove(xoBoardLine);
         currentPlayer = switchPlayer(currentPlayer);
         System.out.println(currentPlayer);
-        currentPlayer.getMove(xoBoardLine, 34);
+        currentPlayer.getMove(xoBoardLine);
         System.out.println(xoBoardLine);
     }
 
