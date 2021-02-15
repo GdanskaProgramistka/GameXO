@@ -29,13 +29,23 @@ public class Board {
         return Objects.hash(xoBoardLine);
     }
 
-    List<String> xoBoardLine;
+    //Object entry[][] = new Object[3][3];                      ??????
+    ArrayList<Object> xoBoardLine = new ArrayList<Object>();
+    ArrayList<String> xoBoardColumn = new ArrayList<>();
+
+    //List<List<String>> xoBoardLine;
+    //List<String> xoBoardColumn;
 
     public Board(int size) {
         this.xoBoardLine = new ArrayList<>();
+        this.xoBoardColumn = new ArrayList();
 
         for (int i = 0; i < size; i++) {
-            xoBoardLine.add("| |");
+            xoBoardLine.add(xoBoardColumn);
+
+            for (int j = 0; j < size; j++) {
+                xoBoardLine.add("| |");
+            }
         }
     }
 

@@ -7,7 +7,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Board xoBoardLine = new Board(10);
+        Board xoBoardLine = new Board(3);
+        System.out.println(xoBoardLine);
 
 
         Player currentPlayer = player1;
