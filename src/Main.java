@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Board xoBoardLine = new Board(3);
+        Board xoBoardLine = new Board(5);
         System.out.println(xoBoardLine);
 
 

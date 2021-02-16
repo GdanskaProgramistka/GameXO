@@ -29,32 +29,35 @@ public class Board {
         return Objects.hash(xoBoardLine);
     }
 
-    //Object entry[][] = new Object[3][3];                      ??????
-    ArrayList<Object> xoBoardLine = new ArrayList<Object>();
-    ArrayList<String> xoBoardColumn = new ArrayList<>();
 
-    //List<List<String>> xoBoardLine;
-    //List<String> xoBoardColumn;
+    List<List<String>> xoBoardLine;
+    List<String> xoBoardColumn;
 
     public Board(int size) {
         this.xoBoardLine = new ArrayList<>();
         this.xoBoardColumn = new ArrayList();
 
-        for (int i = 0; i < size; i++) {
-            xoBoardLine.add(xoBoardColumn);
-
-            for (int j = 0; j < size; j++) {
-                xoBoardLine.add("| |");
+        for (int i = 0; i < xoBoardLine.size(); i++) {
+            for (int j = 0; j < xoBoardLine.get(i).size(); j++) {
+                System.out.print(xoBoardLine.get(i).get(j));
             }
+            System.out.println();
         }
-    }
+
+
+
+       /* for (int j = 0; j < size; j++) {
+            xoBoardColumn.add("| |");
+        }*/
+
+        }
 
     public boolean set (int position, String symbol) {
         if (position < 0 || position > xoBoardLine.size()-1 ) {
             return false;
         }
         else {
-            xoBoardLine.set(position, symbol);
+            xoBoardColumn.set(position, symbol);
             return true;
         }
     }

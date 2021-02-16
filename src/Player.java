@@ -14,7 +14,7 @@ public class Player {
 
     public void getMove(Board board) {
         int position = scan.nextInt();
-        //while (!board.set(position, symbol.getSymbol()) || !board.isEmpty(position)) {
+        /*//while (!board.set(position, symbol.getSymbol()) || !board.isEmpty(position)) {
         while (!board.set(position, symbol.getSymbol())) {
             System.out.println("Position out of range or already taken. Please enter the correct position");
             position = scan.nextInt();
@@ -23,7 +23,7 @@ public class Player {
         while(!board.isEmpty(position)){
             System.out.println("This position is already taken. Chooses the empty position");
             position = scan.nextInt();
-            }
+            }*/
 
         board.set(position, symbol.getSymbol());
         }
