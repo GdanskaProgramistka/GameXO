@@ -7,18 +7,18 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Board xoBoardLine = new Board(5);
-        System.out.println(xoBoardLine);
+        Board xoBoard = new Board(3);
+        Round round = new Round(1);
 
-
-        Player currentPlayer = player1;
-        System.out.println(currentPlayer);
-        currentPlayer.getMove(xoBoardLine);
-        currentPlayer = switchPlayer(currentPlayer);
-        System.out.println(currentPlayer);
-        currentPlayer.getMove(xoBoardLine);
-        System.out.println(xoBoardLine);
+        while (!round.isEnd) {
+            Player currentPlayer = player1;
+            System.out.println(currentPlayer);
+            currentPlayer.getMove(xoBoard);
+            currentPlayer = switchPlayer(currentPlayer);
+            System.out.println(xoBoard);
+        }
     }
+
 
     static Player switchPlayer(Player currentPlayer) {
         if (currentPlayer.equals(player1)) {

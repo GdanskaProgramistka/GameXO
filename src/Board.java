@@ -12,7 +12,7 @@ public class Board {
     @Override
     public String toString() {
         return "Board{" +
-                "xoBoardLine=" + xoBoardLine +
+                "xoBoardLine=" + rows +
                 '}';
     }
 
@@ -21,48 +21,48 @@ public class Board {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Board board = (Board) o;
-        return Objects.equals(xoBoardLine, board.xoBoardLine);
+        return Objects.equals(rows, board.rows);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(xoBoardLine);
+        return Objects.hash(rows);
     }
 
 
-    List<List<String>> xoBoardLine;
-    List<String> xoBoardColumn;
+    List<List<String>> rows;
+    List<String> column;
 
     public Board(int size) {
-        this.xoBoardLine = new ArrayList<>();
-        this.xoBoardColumn = new ArrayList();
+        this.rows = new ArrayList<>();
+        this.column = new ArrayList<>();
 
-        for (int i = 0; i < xoBoardLine.size(); i++) {
-            for (int j = 0; j < xoBoardLine.get(i).size(); j++) {
-                System.out.print(xoBoardLine.get(i).get(j));
+        column = new ArrayList<>();
+
+        rows.add(column);
+        column.add("| |");
+
+        for (int i = 0; i < size; i++) {
+            rows.add(column);
+            for (int j = 0; j < size; j++) {
+                column.add("| |");
+                System.out.print(rows.get(i).get(j));
             }
             System.out.println();
         }
-
-
-
-       /* for (int j = 0; j < size; j++) {
-            xoBoardColumn.add("| |");
-        }*/
-
-        }
+    }
 
     public boolean set (int position, String symbol) {
-        if (position < 0 || position > xoBoardLine.size()-1 ) {
+        if (position < 0 || position > rows.size()-1 ) {
             return false;
         }
         else {
-            xoBoardColumn.set(position, symbol);
+            column.set(position, symbol);
             return true;
         }
     }
     public boolean isEmpty (int position){
-        if (xoBoardLine.get(position).equals("| |")) {
+        if (column.get(position).equals("| |")) {
             return true;
         }
         else {
