@@ -3,6 +3,28 @@ import java.util.Scanner;
 
 public class Player {
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Player player = (Player) o;
+        return Objects.equals(playerName, player.playerName) &&
+                Objects.equals(symbol, player.symbol) &&
+                Objects.equals(scan, player.scan);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(playerName, symbol, scan);
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "playerName='" + playerName + '\'' +
+                '}';
+    }
+
     private final String playerName;
     private final Symbol symbol;
     Scanner scan = new Scanner(System.in);
@@ -13,40 +35,25 @@ public class Player {
     }
 
     public void getMove(Board board) {
-        int position = scan.nextInt();
-        /*//while (!board.set(position, symbol.getSymbol()) || !board.isEmpty(position)) {
-        while (!board.set(position, symbol.getSymbol())) {
-            System.out.println("Position out of range or already taken. Please enter the correct position");
-            position = scan.nextInt();
+        int positionX = scan.nextInt();
+        int positionY = scan.nextInt();
+        /*while (!board.set(positionX, positionY, symbol.getSymbol())) {
+            System.out.println("Position out of range. Please enter the correct position");
+            positionX = scan.nextInt();
+            positionY = scan.nextInt();
+        }*/
+        /*while (!board.isEmpty(positionX, positionY)) {
+            System.out.println("Position already taken. Please enter the new position");
+            positionX = scan.nextInt();
+            positionY = scan.nextInt();
+        }*/
+
+        while (!board.set(positionX, positionY, symbol.getSymbol()) || !board.isEmpty(positionX, positionY)) {
+            System.out.println("wrong position");
+            positionX = scan.nextInt();
+            positionY = scan.nextInt();
+
         }
-
-        while(!board.isEmpty(position)){
-            System.out.println("This position is already taken. Chooses the empty position");
-            position = scan.nextInt();
-            }*/
-
-        board.set(position, symbol.getSymbol());
+            board.set(positionX, positionY, symbol.getSymbol());
         }
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Player player = (Player) o;
-        return Objects.equals(playerName, player.playerName) &&
-                Objects.equals(symbol, player.symbol);
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(playerName, symbol);
-    }
-
-    @Override
-    public String toString() {
-        return "Player{" +
-                "name='" + playerName + '\'' +
-                '}';
-    }
-}

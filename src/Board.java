@@ -5,7 +5,8 @@ import java.util.Scanner;
 
 public class Board {
 
-    private int position;
+    private int positionX;
+    private int PositionY;
     boolean inRange;
     Scanner scan = new Scanner(System.in);
 
@@ -39,30 +40,30 @@ public class Board {
 
         column = new ArrayList<>();
 
-        rows.add(column);
-        column.add("| |");
-
         for (int i = 0; i < size; i++) {
-            rows.add(column);
             for (int j = 0; j < size; j++) {
                 column.add("| |");
-                System.out.print(rows.get(i).get(j));
+                System.out.print(column.get(j));
             }
+            rows.add(column);
+            column = new ArrayList<>();
             System.out.println();
         }
     }
 
-    public boolean set (int position, String symbol) {
-        if (position < 0 || position > rows.size()-1 ) {
+    public boolean set (int positionX, int positionY, String symbol) {
+        if (positionX < 0 || positionY < 0 || positionX > rows.size()-1 || positionY > rows.size()-1) {
             return false;
         }
         else {
-            column.set(position, symbol);
+            rows.get(positionX).set(positionY, symbol);
             return true;
         }
     }
-    public boolean isEmpty (int position){
-        if (column.get(position).equals("| |")) {
+    public boolean isEmpty (int positionX, int positionY){
+        if (rows.get(positionX).get(positionY).equals("| |")){
+        //if (rows.get(positionX).contains(column.get(positionY).equals("| |"))){
+        //if (column.get(positionY).equals("| |")) {
             return true;
         }
         else {

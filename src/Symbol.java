@@ -1,4 +1,4 @@
-public class Symbol {  //przydałoby się na sztywno dopasować symbol X do gracza1, O do gracza 2
+public class Symbol {
 
     String symbol;
 

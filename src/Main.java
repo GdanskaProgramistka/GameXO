@@ -7,8 +7,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Board xoBoard = new Board(3);
+        Board xoBoard = new Board(4);
         Round round = new Round(1);
+
 
         while (!round.isEnd) {
             Player currentPlayer = player1;
@@ -16,9 +17,12 @@ public class Main {
             currentPlayer.getMove(xoBoard);
             currentPlayer = switchPlayer(currentPlayer);
             System.out.println(xoBoard);
+            System.out.println(currentPlayer);
+            currentPlayer.getMove(xoBoard);
+            currentPlayer = switchPlayer(currentPlayer);
+            System.out.println(xoBoard);
         }
     }
-
 
     static Player switchPlayer(Player currentPlayer) {
         if (currentPlayer.equals(player1)) {
