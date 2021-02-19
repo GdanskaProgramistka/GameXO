@@ -37,22 +37,9 @@ public class Player {
     public void getMove(Board board) {
         int positionX = scan.nextInt();
         int positionY = scan.nextInt();
-        /*while (!board.set(positionX, positionY, symbol.getSymbol())) {
-            System.out.println("Position out of range. Please enter the correct position");
+        while (!board.set(positionX, positionY, symbol.getSymbol())) {
             positionX = scan.nextInt();
             positionY = scan.nextInt();
-        }*/
-        /*while (!board.isEmpty(positionX, positionY)) {
-            System.out.println("Position already taken. Please enter the new position");
-            positionX = scan.nextInt();
-            positionY = scan.nextInt();
-        }*/
-
-        while (!board.set(positionX, positionY, symbol.getSymbol()) || !board.isEmpty(positionX, positionY)) {
-            System.out.println("wrong position");
-            positionX = scan.nextInt();
-            positionY = scan.nextInt();
-
         }
             board.set(positionX, positionY, symbol.getSymbol());
         }
