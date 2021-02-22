@@ -51,18 +51,22 @@ public class Board {
         }
     }
 
-    public boolean set (int positionX, int positionY, String symbol) {
+    public void set (int positionX, int positionY, String symbol) {
+        rows.get(positionX).set(positionY, symbol);
+    }
+
+    public boolean isSetable (int positionX, int positionY) {
         if (positionX < 0 || positionY < 0 || positionX > rows.size()-1 || positionY > rows.size()-1) {
             System.out.println("Position out of range. Please enter the correct position");
             return false;
         }
-        if (!(rows.get(positionX).get(positionY).equals("| |"))) {
+        else if (!(rows.get(positionX).get(positionY).equals("| |"))) {
             System.out.println("Position is already taken. Please enter the correct position");
             return false;
         }
         else {
-            rows.get(positionX).set(positionY, symbol);
             return true;
         }
+
     }
 }

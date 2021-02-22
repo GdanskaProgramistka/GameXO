@@ -37,7 +37,7 @@ public class Player {
     public void getMove(Board board) {
         int positionX = scan.nextInt();
         int positionY = scan.nextInt();
-        while (!board.set(positionX, positionY, symbol.getSymbol())) {
+        while (!board.isSetable(positionX, positionY)) {
             positionX = scan.nextInt();
             positionY = scan.nextInt();
         }
