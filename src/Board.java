@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -51,8 +52,21 @@ public class Board {
         }
     }
 
+    public void printBoard(Board board){
+        for (int i = 0; i < rows.size(); i++) {
+            for (int j = 0; j < column.size(); j++) {
+                column.add("| |");
+                System.out.print(column.get(j));
+            }
+            rows.add(column);
+            column = new ArrayList<>();
+            System.out.println();
+        }
+    }
+
     public void set (int positionX, int positionY, String symbol) {
         rows.get(positionX).set(positionY, symbol);
+        System.out.println();
     }
 
     public boolean isSetable (int positionX, int positionY) {
@@ -67,6 +81,10 @@ public class Board {
         else {
             return true;
         }
+
+    }
+
+    public void print() {
 
     }
 }

@@ -1,9 +1,10 @@
-import java.sql.SQLOutput;
-
 public class Main {
 
     static Player player1 = new Player("Ania", new Symbol("X"));
     static Player player2 = new Player("Baryłek", new Symbol("O"));
+
+    public Main() {
+    }
 
     public static void main(String[] args) {
 
@@ -15,6 +16,8 @@ public class Main {
             Player currentPlayer = player1;
             System.out.println(currentPlayer);
             currentPlayer.getMove(xoBoard);
+            xoBoard.printBoard(xoBoard);
+            //round.judgeScore(xoBoard);
             currentPlayer = switchPlayer(currentPlayer);
             System.out.println(xoBoard);
             System.out.println(currentPlayer);
