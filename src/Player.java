@@ -41,9 +41,6 @@ public class Player {
             positionX = scan.nextInt();
             positionY = scan.nextInt();
         }
-            board.set(positionX, positionY, symbol.getSymbol());
-        //if (symbol.getSymbol().equals())
-
-
+        board.set(positionX, positionY, symbol.getSymbol());
         }
     }

@@ -1,7 +1,7 @@
 public class Main {
 
-    static Player player1 = new Player("Ania", new Symbol("X"));
-    static Player player2 = new Player("Baryłek", new Symbol("O"));
+    static Player player1 = new Player("Ania", new Symbol("|X|"));
+    static Player player2 = new Player("Baryłek", new Symbol("|O|"));
 
     public Main() {
     }
@@ -16,14 +16,14 @@ public class Main {
             Player currentPlayer = player1;
             System.out.println(currentPlayer);
             currentPlayer.getMove(xoBoard);
-            xoBoard.printBoard(xoBoard);
+            xoBoard.printBoard();
+            //round.checkHorizontal(xoBoard,);
             //round.judgeScore(xoBoard);
             currentPlayer = switchPlayer(currentPlayer);
-            System.out.println(xoBoard);
             System.out.println(currentPlayer);
             currentPlayer.getMove(xoBoard);
+            xoBoard.printBoard();
             currentPlayer = switchPlayer(currentPlayer);
-            System.out.println(xoBoard);
         }
     }
 

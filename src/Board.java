@@ -52,14 +52,11 @@ public class Board {
         }
     }
 
-    public void printBoard(Board board){
+    public void printBoard(){
         for (int i = 0; i < rows.size(); i++) {
-            for (int j = 0; j < column.size(); j++) {
-                column.add("| |");
-                System.out.print(column.get(j));
+            for (int j = 0; j < rows.get(i).size(); j++) {
+                System.out.print(rows.get(i).get(j));
             }
-            rows.add(column);
-            column = new ArrayList<>();
             System.out.println();
         }
     }
@@ -81,10 +78,6 @@ public class Board {
         else {
             return true;
         }
-
-    }
-
-    public void print() {
 
     }
 }
