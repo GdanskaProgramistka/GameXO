@@ -17,7 +17,7 @@ public class Main {
             System.out.println(currentPlayer);
             currentPlayer.getMove(xoBoard);
             xoBoard.printBoard();
-            //round.checkHorizontal(xoBoard,);
+            //round.checkHorizontal(xoBoard, "X";);
             //round.judgeScore(xoBoard);
             currentPlayer = switchPlayer(currentPlayer);
             System.out.println(currentPlayer);

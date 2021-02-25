@@ -1,21 +1,23 @@
-import java.util.List;
-
 public class Round {
 
     public boolean isEnd;
     int roundNumber;
+    int numberOfSymbols;
+    int numberOfWinningSymbols;
+    int currentPosition;
 
     public Round(int roundNumber) {
         this.roundNumber = roundNumber;
     }
 
-    public boolean checkHorizontal(Board board, Symbol symbol, int positionX) {
-        int numberOfSymbols = 0;
+    public boolean checkHorizontal(Board board, String symbol, int positionX) {
+        currentPosition = positionX;
+        numberOfSymbols = 0;
         //for (board.rows.get(positionX)) {
-            for (int i = 0; i < board.rows.size(); i++) {
+            for (int i = (positionX - (numberOfWinningSymbols - 1)); i <= (positionX + (numberOfWinningSymbols - 1)) ; i++) {
                 if (board.rows.get(positionX).get(i).equals(symbol)) {
                     numberOfSymbols++;
-                    if (numberOfSymbols == 3) {
+                    if (numberOfSymbols == numberOfWinningSymbols) {
                         System.out.println("Wygrałeś! Masz trzy " + symbol + "w poziomie.");
                         return true;
                     }
