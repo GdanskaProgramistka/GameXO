@@ -15,10 +15,9 @@ public class Main {
         while (!round.isEnd) {
             Player currentPlayer = player1;
             System.out.println(currentPlayer);
-            currentPlayer.getMove(xoBoard);
+            Position position = currentPlayer.getMove(xoBoard);
             xoBoard.printBoard();
-            //round.checkHorizontal(xoBoard, "X";);
-            //round.judgeScore(xoBoard);
+            round.checkHorizontal(xoBoard, currentPlayer.getSymbol(), position);
             currentPlayer = switchPlayer(currentPlayer);
             System.out.println(currentPlayer);
             currentPlayer.getMove(xoBoard);

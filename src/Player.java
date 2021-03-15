@@ -26,6 +26,11 @@ public class Player {
     }
 
     private final String playerName;
+
+    public Symbol getSymbol() {
+        return symbol;
+    }
+
     private final Symbol symbol;
     Scanner scan = new Scanner(System.in);
 
@@ -34,7 +39,7 @@ public class Player {
         this.symbol = symbol;
     }
 
-    public void getMove(Board board) {
+    public Position getMove(Board board) {
         int positionX = scan.nextInt();
         int positionY = scan.nextInt();
         while (!board.isSetable(positionX, positionY)) {
@@ -42,5 +47,7 @@ public class Player {
             positionY = scan.nextInt();
         }
         board.set(positionX, positionY, symbol.getSymbol());
-        }
+        return new Position(positionX, positionY);
+
     }
+}
