@@ -8,7 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Board xoBoard = new Board(4);
+        Board xoBoard = new Board(10);
         Round round = new Round(1);
 
 
@@ -18,6 +18,7 @@ public class Main {
             Position position = currentPlayer.getMove(xoBoard);
             xoBoard.printBoard();
             round.checkHorizontal(xoBoard, currentPlayer.getSymbol(), position);
+            round.checkVertical(xoBoard, currentPlayer.getSymbol(), position);
             currentPlayer = switchPlayer(currentPlayer);
             System.out.println(currentPlayer);
             currentPlayer.getMove(xoBoard);
