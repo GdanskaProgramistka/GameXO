@@ -8,7 +8,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Board xoBoard = new Board(10);
+
+        Board xoBoard = new Board(8);
         Round round = new Round(1);
 
 
@@ -19,11 +20,17 @@ public class Main {
             xoBoard.printBoard();
             round.checkHorizontal(xoBoard, currentPlayer.getSymbol(), position);
             round.checkVertical(xoBoard, currentPlayer.getSymbol(), position);
+            round.checkDiagonal1(xoBoard, currentPlayer.getSymbol(), position);
+            round.checkDiagonal2(xoBoard, currentPlayer.getSymbol(), position);
+
             currentPlayer = switchPlayer(currentPlayer);
             System.out.println(currentPlayer);
             currentPlayer.getMove(xoBoard);
             xoBoard.printBoard();
-            currentPlayer = switchPlayer(currentPlayer);
+            round.checkHorizontal(xoBoard, currentPlayer.getSymbol(), position);
+            round.checkVertical(xoBoard, currentPlayer.getSymbol(), position);
+            round.checkDiagonal1(xoBoard, currentPlayer.getSymbol(), position);
+            //currentPlayer = switchPlayer(currentPlayer);
         }
     }
 
