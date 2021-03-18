@@ -25,11 +25,12 @@ public class Main {
 
             currentPlayer = switchPlayer(currentPlayer);
             System.out.println(currentPlayer);
-            currentPlayer.getMove(xoBoard);
+            currentPlayer.getMove(xoBoard); // despite Player2's move, the positionX and positionY is still from Player1's move
             xoBoard.printBoard();
             round.checkHorizontal(xoBoard, currentPlayer.getSymbol(), position);
             round.checkVertical(xoBoard, currentPlayer.getSymbol(), position);
             round.checkDiagonal1(xoBoard, currentPlayer.getSymbol(), position);
+            round.checkDiagonal2(xoBoard, currentPlayer.getSymbol(), position);
             //currentPlayer = switchPlayer(currentPlayer);
         }
     }
