@@ -39,7 +39,8 @@ public class Player {
         this.symbol = symbol;
     }
 
-    public Position getMove(Board board) {
+    public Position getMove(Board board, Round round) {
+        int maxRoundMoves = board.rows.size() * board.column.size();
         int positionX = scan.nextInt();
         int positionY = scan.nextInt();
         while (!board.isSetable(positionX, positionY)) {
@@ -47,6 +48,7 @@ public class Player {
             positionY = scan.nextInt();
         }
         board.set(positionX, positionY, symbol.getSymbol());
+        round.countMoves(board);
         return new Position(positionX, positionY);
 
     }

@@ -9,29 +9,21 @@ public class Main {
     public static void main(String[] args) {
 
 
-        Board xoBoard = new Board(8);
-        Round round = new Round(1);
+        Board xoBoard = new Board(4);
+        Judge xoJudge = new Judge(xoBoard);
+        Round round = new Round(3);
 
-
-        while (!round.isEnd) {
-            Player currentPlayer = player1;
+        Position position;
+        Player currentPlayer = player1;
+        while (!round.isEnd()) {
             System.out.println(currentPlayer);
-            Position position = currentPlayer.getMove(xoBoard);
+            position = currentPlayer.getMove(xoBoard, round);
             xoBoard.printBoard();
-            round.checkHorizontal(xoBoard, currentPlayer.getSymbol(), position);
-            round.checkVertical(xoBoard, currentPlayer.getSymbol(), position);
-            round.checkDiagonal1(xoBoard, currentPlayer.getSymbol(), position);
-            round.checkDiagonal2(xoBoard, currentPlayer.getSymbol(), position);
-
+            xoJudge.checkHorizontal(xoBoard, currentPlayer.getSymbol(), position);
+            xoJudge.checkVertical(xoBoard, currentPlayer.getSymbol(), position);
+            xoJudge.checkDiagonal1(xoBoard, currentPlayer.getSymbol(), position);
+            xoJudge.checkDiagonal2(xoBoard, currentPlayer.getSymbol(), position);
             currentPlayer = switchPlayer(currentPlayer);
-            System.out.println(currentPlayer);
-            currentPlayer.getMove(xoBoard); // despite Player2's move, the positionX and positionY is still from Player1's move
-            xoBoard.printBoard();
-            round.checkHorizontal(xoBoard, currentPlayer.getSymbol(), position);
-            round.checkVertical(xoBoard, currentPlayer.getSymbol(), position);
-            round.checkDiagonal1(xoBoard, currentPlayer.getSymbol(), position);
-            round.checkDiagonal2(xoBoard, currentPlayer.getSymbol(), position);
-            //currentPlayer = switchPlayer(currentPlayer);
         }
     }
 
