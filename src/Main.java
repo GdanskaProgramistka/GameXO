@@ -9,20 +9,22 @@ public class Main {
     public static void main(String[] args) {
 
 
-        Board xoBoard = new Board(4);
+        Game xoGame = new Game();
+        Board xoBoard = new Board(2);
         Judge xoJudge = new Judge(xoBoard);
         Round round = new Round(3);
-
         Position position;
+
         Player currentPlayer = player1;
-        while (!round.isEnd()) {
+        while (!xoGame.gameOver) {
             System.out.println(currentPlayer);
-            position = currentPlayer.getMove(xoBoard, round);
+            position = currentPlayer.getMove(xoBoard);
             xoBoard.printBoard();
             xoJudge.checkHorizontal(xoBoard, currentPlayer.getSymbol(), position);
             xoJudge.checkVertical(xoBoard, currentPlayer.getSymbol(), position);
             xoJudge.checkDiagonal1(xoBoard, currentPlayer.getSymbol(), position);
             xoJudge.checkDiagonal2(xoBoard, currentPlayer.getSymbol(), position);
+            round.countMoves(xoBoard);
             currentPlayer = switchPlayer(currentPlayer);
         }
     }

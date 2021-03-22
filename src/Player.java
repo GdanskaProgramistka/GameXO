@@ -3,6 +3,32 @@ import java.util.Scanner;
 
 public class Player {
 
+    private final String playerName;
+
+    public Symbol getSymbol() {
+        return symbol;
+    }
+
+    private final Symbol symbol;
+    Scanner scan = new Scanner(System.in);
+
+    public Player(String playerName, Symbol symbol) {
+        this.playerName = playerName;
+        this.symbol = symbol;
+    }
+
+    public Position getMove(Board board) {
+        int positionX = scan.nextInt();
+        int positionY = scan.nextInt();
+        while (!board.isSetable(positionX, positionY)) {
+            positionX = scan.nextInt();
+            positionY = scan.nextInt();
+        }
+        board.set(positionX, positionY, symbol.getSymbol());
+        return new Position(positionX, positionY);
+
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -23,33 +49,5 @@ public class Player {
         return "Player{" +
                 "playerName='" + playerName + '\'' +
                 '}';
-    }
-
-    private final String playerName;
-
-    public Symbol getSymbol() {
-        return symbol;
-    }
-
-    private final Symbol symbol;
-    Scanner scan = new Scanner(System.in);
-
-    public Player(String playerName, Symbol symbol) {
-        this.playerName = playerName;
-        this.symbol = symbol;
-    }
-
-    public Position getMove(Board board, Round round) {
-        int maxRoundMoves = board.rows.size() * board.column.size();
-        int positionX = scan.nextInt();
-        int positionY = scan.nextInt();
-        while (!board.isSetable(positionX, positionY)) {
-            positionX = scan.nextInt();
-            positionY = scan.nextInt();
-        }
-        board.set(positionX, positionY, symbol.getSymbol());
-        round.countMoves(board);
-        return new Position(positionX, positionY);
-
     }
 }
