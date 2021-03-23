@@ -8,24 +8,32 @@ public class Main {
 
     public static void main(String[] args) {
 
-
-        Game xoGame = new Game();
-        Board xoBoard = new Board(2);
+        Board xoBoard = new Board(3);
         Judge xoJudge = new Judge(xoBoard);
         Round round = new Round(3);
         Position position;
+        GameOver xoGame = new GameOver();
 
-        Player currentPlayer = player1;
+
         while (!xoGame.gameOver) {
+            Player currentPlayer = player1;
             System.out.println(currentPlayer);
             position = currentPlayer.getMove(xoBoard);
-            xoBoard.printBoard();
-            xoJudge.checkHorizontal(xoBoard, currentPlayer.getSymbol(), position);
-            xoJudge.checkVertical(xoBoard, currentPlayer.getSymbol(), position);
-            xoJudge.checkDiagonal1(xoBoard, currentPlayer.getSymbol(), position);
-            xoJudge.checkDiagonal2(xoBoard, currentPlayer.getSymbol(), position);
             round.countMoves(xoBoard);
-            currentPlayer = switchPlayer(currentPlayer);
+            xoBoard.printBoard();
+            while (!xoJudge.checkHorizontal(xoBoard, currentPlayer.getSymbol(), position) &&
+                    !xoJudge.checkVertical(xoBoard, currentPlayer.getSymbol(), position) &&
+                    !xoJudge.checkDiagonal1(xoBoard, currentPlayer.getSymbol(), position) &&
+                    !xoJudge.checkDiagonal2(xoBoard, currentPlayer.getSymbol(), position) &&
+                    !round.noResult()) {
+                currentPlayer = switchPlayer(currentPlayer);
+                System.out.println(currentPlayer);
+                position = currentPlayer.getMove(xoBoard);
+                round.countMoves(xoBoard);
+                xoBoard.printBoard();
+            }
+            round.isEnd(xoBoard, currentPlayer, xoGame);
+            xoBoard = new Board(xoBoard.rows.size());
         }
     }
 

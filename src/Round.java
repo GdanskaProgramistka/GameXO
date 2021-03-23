@@ -11,35 +11,51 @@ public class Round {
     public Round(int numberOfRoundsInGame) {
         this.numberOfRoundsInGame = numberOfRoundsInGame;
     }
-
+    // option to declare the number of rounds:
    /* public void determineNumberOfRounds() {
         int numberOfRoundsInGame = scan.nextInt();
     }*/
 
     public void countMoves(Board board) {
-        maxRoundMoves = (board.rows.size()) * (board.column.size());
+        maxRoundMoves = (board.rows.size()) * (board.rows.get(0).size());
         moveInRound++;
+    }
+
+    public boolean noResult() {
         if (moveInRound == maxRoundMoves) {
-            isEnd(board);
-            moveInRound = 0;
+            return true;
         }
+        return false;
     }
 
-    public void isEnd(Board board) {
-        if (roundNumber <= numberOfRoundsInGame) {
-            System.out.println("The round " + roundNumber + " is over. The winner of this round is CURRENT PLAYER");
-            board.rows.clear();
-            board.column.clear();
-        } else {
-            System.out.println("Game Over. The winner is PLAYER 1 OR 2\"");
+    public void isEnd(Board board, Player player, GameOver gameOver) {
+        if (roundNumber < numberOfRoundsInGame) {
+            if (moveInRound == maxRoundMoves) {
+                System.out.println("The round " + roundNumber + " is over. Nobody won this round.");
+                moveInRound = 0;
+                roundNumber++;
+            }
+            else {
+                System.out.println("The round " + roundNumber + " is end. The winner of this round is " + player);
+                moveInRound = 0;
+                roundNumber++;
+            }
 
         }
+        else {
+            if (moveInRound == maxRoundMoves) {
+                System.out.println("The round " + roundNumber + " is over. Nobody won this round.");
+                System.out.println("Game Over. The winner is ......! Congratulations!");
+                return;
+            }
+            else {
+                System.out.println("The round " + roundNumber + " is end. The winner of this round is " + player);
+                System.out.println("Game Over. The winner is ......! Congratulations!");
+                return;
+            }
+        }
     }
-
-
 }
-
-
 
 
 
