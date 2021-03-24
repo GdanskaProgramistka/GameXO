@@ -4,19 +4,20 @@ import java.util.Scanner;
 public class Player {
 
     private final String playerName;
+    private final Symbol symbol;
+    int win;
+
+    public Player(String playerName, Symbol symbol) {
+        this.playerName = playerName;
+        this.symbol = symbol;
+        this.win = 0;
+    }
 
     public Symbol getSymbol() {
         return symbol;
     }
 
-    private final Symbol symbol;
     Scanner scan = new Scanner(System.in);
-
-    public Player(String playerName, Symbol symbol) {
-        this.playerName = playerName;
-        this.symbol = symbol;
-    }
-
     public Position getMove(Board board) {
         int positionX = scan.nextInt();
         int positionY = scan.nextInt();
@@ -26,8 +27,8 @@ public class Player {
         }
         board.set(positionX, positionY, symbol.getSymbol());
         return new Position(positionX, positionY);
-
     }
+
 
     @Override
     public boolean equals(Object o) {

@@ -1,6 +1,6 @@
 public class Symbol {
 
-    String symbol;
+    private String symbol;
 
     public Symbol(String symbol) {
         this.symbol = symbol;

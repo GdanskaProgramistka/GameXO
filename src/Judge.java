@@ -7,10 +7,6 @@ public class Judge {
     int currentPositionX;
     int currentPositionY;
 
-    public Judge(Board board) {
-    }
-
-
     //check in HORIZONTAL: ------------------------------------------------------------------------------------------
     public boolean checkHorizontal(Board board, Symbol symbol, Position position) {
         numberOfSymbols = 0;

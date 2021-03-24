@@ -1,7 +1,7 @@
 public class GameOver {
 
     public boolean gameOver; /*{
-        if ( int winsOfPlayer1 > winsOfPlayer2){
+        if (player.win){
             System.out.println("Game Over. The winner is " + player1 + "! Congratulations!");
             return true;
         }

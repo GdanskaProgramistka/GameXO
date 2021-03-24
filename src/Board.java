@@ -2,35 +2,8 @@ import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Scanner;
 
 public class Board {
-
-    private int positionX;
-    private int PositionY;
-    boolean inRange;
-    Scanner scan = new Scanner(System.in);
-
-    @Override
-    public String toString() {
-        return "Board{" +
-                "xoBoardLine=" + rows +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Board board = (Board) o;
-        return Objects.equals(rows, board.rows);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(rows);
-    }
-
 
     List<List<String>> rows;
     List<String> column;
@@ -78,6 +51,25 @@ public class Board {
         else {
             return true;
         }
+    }
 
+    @Override
+    public String toString() {
+        return "Board{" +
+                "xoBoardLine=" + rows +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Board board = (Board) o;
+        return Objects.equals(rows, board.rows);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(rows);
     }
 }

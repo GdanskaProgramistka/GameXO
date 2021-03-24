@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
 
         Board xoBoard = new Board(3);
-        Judge xoJudge = new Judge(xoBoard);
+        Judge xoJudge = new Judge();
         Round round = new Round(3);
         Position position;
         GameOver xoGame = new GameOver();
@@ -32,7 +32,7 @@ public class Main {
                 round.countMoves(xoBoard);
                 xoBoard.printBoard();
             }
-            round.isEnd(xoBoard, currentPlayer, xoGame);
+            round.isEnd(currentPlayer);
             xoBoard = new Board(xoBoard.rows.size());
         }
     }
