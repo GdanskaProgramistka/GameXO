@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Main {
 
     static Player player1 = new Player("Ania", new Symbol("|X|"));
@@ -10,12 +12,13 @@ public class Main {
 
         Board xoBoard = new Board(3);
         Judge xoJudge = new Judge();
-        Round round = new Round(3);
+        Scanner scan = new Scanner(System.in);
+        Round round = new Round(scan.nextInt());
+        //round.determineNumberOfRounds();
         Position position;
-        GameOver xoGame = new GameOver();
 
 
-        while (!xoGame.gameOver) {
+        while (!GameOver.gameOver) {
             Player currentPlayer = player1;
             System.out.println(currentPlayer);
             position = currentPlayer.getMove(xoBoard);

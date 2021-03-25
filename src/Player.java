@@ -20,6 +20,7 @@ public class Player {
     Scanner scan = new Scanner(System.in);
     public Position getMove(Board board) {
         int positionX = scan.nextInt();
+        //GameOver.isQuit(positionX);
         int positionY = scan.nextInt();
         while (!board.isSetable(positionX, positionY)) {
             positionX = scan.nextInt();

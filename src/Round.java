@@ -1,4 +1,4 @@
-//import java.util.Scanner;
+import java.util.Scanner;
 
 public class Round {
 
@@ -7,8 +7,9 @@ public class Round {
     public Round(int numberOfRoundsInGame) {
         this.numberOfRoundsInGame = numberOfRoundsInGame;
     }
-    // option to declare the number of rounds:
-   /* public void determineNumberOfRounds() {
+
+    /*public void determineNumberOfRounds() {
+        System.out.println("Give a number of rounds");
         Scanner scan = new Scanner(System.in);
         int numberOfRoundsInGame = scan.nextInt();
     }*/
@@ -46,11 +47,11 @@ public class Round {
         else {
             if (moveInRound == maxRoundMoves) {
                 System.out.println("The round " + roundNumber + " is over. Nobody won this round.");
-                System.out.println("Game Over. The winner is ......! Congratulations!");
+                GameOver.checkWinner(player, player);
             }
             else {
                 System.out.println("The round " + roundNumber + " is end. The winner of this round is " + player);
-                System.out.println("Game Over. The winner is ......! Congratulations!");
+                GameOver.checkWinner(player, player);
             }
         }
     }
