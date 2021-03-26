@@ -13,8 +13,7 @@ public class Main {
         Board xoBoard = new Board(3);
         Judge xoJudge = new Judge();
         Scanner scan = new Scanner(System.in);
-        Round round = new Round(scan.nextInt());
-        //round.determineNumberOfRounds();
+        Round round = new Round(3);
         Position position;
 
 

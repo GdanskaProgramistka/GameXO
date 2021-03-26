@@ -14,16 +14,20 @@ public class GameOver {
         }
     }
    // try to QUIT method:
-    /*public static boolean isQuit(int positionX, int positionY){
+    public boolean isQuit(int positionX, int positionY){
         String quit = "quit";
-        if (positionX.equals(quit)){
+        double quitDouble = Double.valueOf(quit);
+
+        if (positionX == quitDouble){
+            System.out.println("w pozycji X wpisałeś QUIT");
             return true;
         }
-        if (positionY.equals(quit)){
+        if (positionY == quitDouble){
+            System.out.println("w pozycji X wpisałeś QUIT");
             return true;
         }
         else {
             return false;
         }
-    }*/
+    }
 }

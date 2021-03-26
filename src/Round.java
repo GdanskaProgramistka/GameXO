@@ -1,4 +1,4 @@
-import java.util.Scanner;
+
 
 public class Round {
 
@@ -12,8 +12,8 @@ public class Round {
         System.out.println("Give a number of rounds");
         Scanner scan = new Scanner(System.in);
         int numberOfRoundsInGame = scan.nextInt();
-    }*/
-
+    }
+*/
     private int roundNumber = 1;
     private int moveInRound = 0;
     private int maxRoundMoves;

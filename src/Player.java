@@ -1,3 +1,4 @@
+import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -19,12 +20,39 @@ public class Player {
 
     Scanner scan = new Scanner(System.in);
     public Position getMove(Board board) {
+        System.out.println("Podaj pozycję w pionie:");
         int positionX = scan.nextInt();
-        //GameOver.isQuit(positionX);
+        try {
+            System.out.println("Twój wybór to: " + positionX);
+        }
+        catch(NoSuchElementException e){
+            System.out.println("Podaj liczbę!");
+            positionX = scan.nextInt();
+        }
+        System.out.println("Podaj pozycję w poziomie:");
         int positionY = scan.nextInt();
+        try {
+            System.out.println("Twój wybór to: " + positionY);
+        }
+        catch(NoSuchElementException e){
+            System.out.println("Podaj liczbę!");
+        }
         while (!board.isSetable(positionX, positionY)) {
             positionX = scan.nextInt();
+            try {
+                System.out.println("Twój wybór to: " + positionX);
+            }
+            catch(NoSuchElementException e){
+                System.out.println("Podaj liczbę!");
+            }
+            System.out.println("Podaj pozycję w poziomie:");
             positionY = scan.nextInt();
+            try {
+                System.out.println("Twój wybór to: " + positionY);
+            }
+            catch(NoSuchElementException e){
+                System.out.println("Podaj liczbę!");
+            }
         }
         board.set(positionX, positionY, symbol.getSymbol());
         return new Position(positionX, positionY);
