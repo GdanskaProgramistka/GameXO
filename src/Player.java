@@ -21,34 +21,33 @@ public class Player {
 
     Scanner scan = new Scanner(System.in);
     public Position getMove(Board board) {
-       /* System.out.println("Enter the horizontal position:");
        //exception:
-        try {
-            int positionX = scan.nextInt();
-        } catch (InputMismatchException e) {
-            System.out.println("It's not a number. Please enter the correct value.");
-        }
-        try {
-            int positionY = scan.nextInt();
-        } catch (InputMismatchException e) {
-            System.out.println("It's not a number. Please enter the correct value.");
-        }*/
-
-     // quit:
-       /* System.out.println("Enter the vertical position:");
-        int positionX = scan.nextInt();
-        String quit = "quit";
-        double qDouble = Double.valueOf(quit);
-        if(positionX == qDouble){
-            System.out.println("Koniec Gry");*/
-        //System.out.println("Enter the horizontal position:");
-        //System.out.println("It's not a number. Please enter the correct value.");*/
-        int positionX = scan.nextInt();
-        int positionY = scan.nextInt();
+        int positionX = -1;
+        int positionY = -1;
         while (!board.isSetable(positionX, positionY)) {
-            positionX = scan.nextInt();
-            positionY = scan.nextInt();
+            String positionXString = Integer.toString(positionX);
+            String positionYString = Integer.toString(positionY);
+            positionXString = scan.nextLine();
+            positionYString = scan.nextLine();
+            if (positionXString.matches("[0-9]+")) {
+                continue;
+            }
+             else {
+                if (positionXString.equals("quit")) {
+                    System.out.println("Game is over");
+                    break;
+                } else {
+                    System.out.println("It's not a number. Please enter the correct value.");
+                }
+            }
         }
+            /*try {
+                positionX = Integer.parseInt(scan.nextLine());
+                positionY = Integer.parseInt(scan.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("It's not a number. Please enter the correct value.");
+            }
+        }*/
         board.set(positionX, positionY, symbol.getSymbol());
         return new Position(positionX, positionY);
     }
