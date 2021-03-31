@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
 import java.util.Objects;
@@ -24,30 +25,23 @@ public class Player {
        //exception:
         int positionX = -1;
         int positionY = -1;
+        Scanner scanner = new Scanner(System.in);
+
         while (!board.isSetable(positionX, positionY)) {
-            String positionXString = Integer.toString(positionX);
-            String positionYString = Integer.toString(positionY);
-            positionXString = scan.nextLine();
-            positionYString = scan.nextLine();
-            if (positionXString.matches("[0-9]+")) {
-                continue;
+            String positionXString = scanner.next();
+            String positionYString = scanner.next();
+            if (positionXString.equals("quit") || positionYString.equals("quit")) {
+                System.out.println("GAME OVER. You left the game.");
+                System.exit(0);
             }
-             else {
-                if (positionXString.equals("quit")) {
-                    System.out.println("Game is over");
-                    break;
-                } else {
-                    System.out.println("It's not a number. Please enter the correct value.");
-                }
+            if (positionXString.matches("[0-9]+") && positionYString.matches("[0-9]+") ) {
+                positionX = Integer.parseInt(positionXString);
+                positionY = Integer.parseInt(positionYString);
+            }
+            else {
+                System.out.println("To nie liczba");
             }
         }
-            /*try {
-                positionX = Integer.parseInt(scan.nextLine());
-                positionY = Integer.parseInt(scan.nextLine());
-            } catch (NumberFormatException e) {
-                System.out.println("It's not a number. Please enter the correct value.");
-            }
-        }*/
         board.set(positionX, positionY, symbol.getSymbol());
         return new Position(positionX, positionY);
     }
