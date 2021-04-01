@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Main {
 
+
     static Player player1 = new Player("Ania", new Symbol("|X|"));
     static Player player2 = new Player("Baryłek", new Symbol("|O|"));
 

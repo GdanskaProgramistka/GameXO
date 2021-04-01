@@ -8,12 +8,6 @@ public class Round {
         this.numberOfRoundsInGame = numberOfRoundsInGame;
     }
 
-    /*public void determineNumberOfRounds() {
-        System.out.println("Give a number of rounds");
-        Scanner scan = new Scanner(System.in);
-        int numberOfRoundsInGame = scan.nextInt();
-    }
-*/
     private int roundNumber = 1;
     private int moveInRound = 0;
     private int maxRoundMoves;

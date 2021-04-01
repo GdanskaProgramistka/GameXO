@@ -5,46 +5,22 @@ public class GameOver {
     public static void checkWinner(Player player1, Player player2) {
         if (player1.win > player2.win) {
             System.out.println("Game Over. The winner is " + player1 + ". Congratulations!");
+            System.exit(0);
         } else if (player1.win < player2.win) {
             System.out.println("Game Over. The winner is " + player2 + ". Congratulations!");
+            System.exit(0);
         } else {
             System.out.println("There is a tie");
+            System.exit(0);
         }
     }
 
-    // try to QUIT method:
-    public static boolean positionXIsQuit(int positionX){
-        String quit = "quit";
-        if (positionX == Integer.parseInt(quit)) {
-            System.out.println("GAME OVER po wciśnięciu guzika quit");
+    public static boolean IsQuit(String positionXString, String positionYString) {
+       if (positionXString.equals("quit") || positionYString.equals("quit")) {
+            System.out.println("GAME OVER. You left the game.");
+            System.exit(0);
             return true;
         }
-        else {
-            return false;
-            }
-    }
-
-    public static boolean positionYIsQuit(int positionY){
-        String quit = "quit";
-        if (positionY == Integer.parseInt(quit)) {
-            System.out.println("GAME OVER po wciśnięciu guzika quit");
-            return true;
-        }
-        else {
-            System.out.println("Game NIE over:P");
-            return false;
-        }
+       return false;
     }
 }
-
-       /* if (positionX.matches("[quit]")) {
-            System.out.println("Koniec gry");
-            return;
-        }
-        if (positionX.matches("[quit]")) {
-            System.out.println("Koniec gry");
-            return;
-        }
-        else {
-            continue;
-        }*/
