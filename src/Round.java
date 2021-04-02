@@ -45,6 +45,7 @@ public class Round {
             }
             else {
                 System.out.println("The round " + roundNumber + " is end. The winner of this round is " + player);
+                player.win++;
                 GameOver.checkWinner(player, player);
             }
         }

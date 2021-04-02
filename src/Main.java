@@ -3,18 +3,18 @@ import java.util.Scanner;
 public class Main {
 
 
-    static Player player1 = new Player("Ania", new Symbol("|X|"));
-    static Player player2 = new Player("Baryłek", new Symbol("|O|"));
+    static Player player1 = new Player(Initialization.playerGetName(), new Symbol("|X|"));
+    static Player player2 = new Player(Initialization.playerGetName(), new Symbol("|O|"));
 
     public Main() {
     }
 
     public static void main(String[] args) {
 
-        Board xoBoard = new Board(3);
+        Board xoBoard = new Board(Initialization.boardGetSize());
         Judge xoJudge = new Judge();
         Scanner scan = new Scanner(System.in);
-        Round round = new Round(3);
+        Round round = new Round(Initialization.gameGetNumberOfRounds());
         Position position;
 
 
