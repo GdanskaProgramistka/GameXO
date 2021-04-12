@@ -30,8 +30,8 @@ public class Player {
         while (!board.isSetable(positionX, positionY)) {
             String positionXString = scanner.next();
             String positionYString = scanner.next();
-            if (GameOver.IsQuit(positionXString, positionYString))
-                GameOver.IsQuit(positionXString, positionYString);
+            if (GameOver.isQuit(positionXString, positionYString))
+                GameOver.isQuit(positionXString, positionYString);
             if (positionXString.matches("[0-9]+") && positionYString.matches("[0-9]+") ) {
                 positionX = Integer.parseInt(positionXString);
                 positionY = Integer.parseInt(positionYString);

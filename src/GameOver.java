@@ -15,7 +15,7 @@ public class GameOver {
         }
     }
 
-    public static boolean IsQuit(String positionXString, String positionYString) {
+    public static boolean isQuit(String positionXString, String positionYString) {
        if (positionXString.equals("quit") || positionYString.equals("quit")) {
             System.out.println("GAME OVER. You left the game.");
             System.exit(0);
