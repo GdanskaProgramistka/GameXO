@@ -25,6 +25,7 @@ public class Player {
        //exception:
         int positionX = -1;
         int positionY = -1;
+        int pierwszeWejscieWPetle = 0;
         Scanner scanner = new Scanner(System.in);
 
         while (!board.isSetable(positionX, positionY)) {
@@ -39,7 +40,9 @@ public class Player {
             else {
                 System.out.println("To nie liczba");
             }
+            pierwszeWejscieWPetle++;
         }
+
         board.set(positionX, positionY, symbol.getSymbol());
         return new Position(positionX, positionY);
     }

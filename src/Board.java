@@ -39,11 +39,11 @@ public class Board {
         System.out.println();
     }
 
-    int moveInRound;
+    int pierwszeWejscieWPetle = 0;
     public boolean isSetable (int positionX, int positionY) {
-        if (positionX < 0 || positionY < 0 || positionX > rows.size()-1 || positionY > rows.size()-1) {
-            if (moveInRound == 0){                     //try to delete information before the first movement
-                System.out.println("Wykonaj pierwszy ruch");
+        if (positionX < 0 || positionY < 0 || positionX > rows.size() - 1 || positionY > rows.size() - 1) {
+            if (pierwszeWejscieWPetle == 0){
+                System.out.println("Nic się nie wyświetla:P");
             }
             else {
                 System.out.println("Position out of range. Please enter the correct position");
@@ -53,8 +53,7 @@ public class Board {
         else if (!(rows.get(positionX).get(positionY).equals("| |"))) {
             System.out.println("Position is already taken. Please enter the correct position");
             return false;
-        }
-        else {
+        } else {
             return true;
         }
     }
