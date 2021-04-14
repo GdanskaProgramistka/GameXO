@@ -3,14 +3,14 @@ import java.util.Scanner;
 public class Main {
 
 
-    static Player player1 = new Player(Initialization.playerGetName(), new Symbol("|X|"));
-    static Player player2 = new Player(Initialization.playerGetName(), new Symbol("|O|"));
 
     public Main() {
     }
 
     public static void main(String[] args) {
 
+        Initialization.player1 = new Player(Initialization.playerGetName(), new Symbol("|X|"));
+        Initialization.player2 = new Player(Initialization.playerGetName(), new Symbol("|O|"));
         Board xoBoard = new Board(Initialization.boardGetSize());
         Judge xoJudge = new Judge();
         Scanner scan = new Scanner(System.in);
@@ -19,7 +19,7 @@ public class Main {
 
 
         while (!GameOver.gameOver) {
-            Player currentPlayer = player1;
+            Player currentPlayer = Initialization.player1;
             System.out.println(currentPlayer);
             position = currentPlayer.getMove(xoBoard);
             round.countMoves(xoBoard);
@@ -41,11 +41,11 @@ public class Main {
     }
 
     static Player switchPlayer(Player currentPlayer) {
-        if (currentPlayer.equals(player1)) {
-            currentPlayer = player2;
+        if (currentPlayer.equals(Initialization.player1)) {
+            currentPlayer = Initialization.player2;
         }
         else {
-            currentPlayer = player1;
+            currentPlayer = Initialization.player1;
         }
         return currentPlayer;
     }

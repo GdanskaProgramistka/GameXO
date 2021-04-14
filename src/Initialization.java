@@ -3,6 +3,8 @@ import java.util.Scanner;
 public class Initialization {
 
     private static int playerIndex = 1;
+    static Player player1;
+    static Player player2;
 
     public static String playerGetName() {
         System.out.println("Enter the name of player: " + playerIndex++);

@@ -22,30 +22,28 @@ public class Player {
 
     Scanner scan = new Scanner(System.in);
     public Position getMove(Board board) {
-       //exception:
-        int positionX = -1;
-        int positionY = -1;
-        int pierwszeWejscieWPetle = 0;
+
         Scanner scanner = new Scanner(System.in);
+        String positionXString = scanner.next();
+        String positionYString = scanner.next();
+        int positionX = Integer.parseInt(positionXString);
+        int positionY = Integer.parseInt(positionYString);
 
         while (!board.isSetable(positionX, positionY)) {
-            String positionXString = scanner.next();
-            String positionYString = scanner.next();
+            positionXString = scanner.next();
+            positionYString = scanner.next();
             if (GameOver.isQuit(positionXString, positionYString))
                 GameOver.isQuit(positionXString, positionYString);
-            if (positionXString.matches("[0-9]+") && positionYString.matches("[0-9]+") ) {
+            if (positionXString.matches("[0-9]+") && positionYString.matches("[0-9]+")) {
                 positionX = Integer.parseInt(positionXString);
                 positionY = Integer.parseInt(positionYString);
-            }
-            else {
+            } else {
                 System.out.println("To nie liczba");
             }
-            pierwszeWejscieWPetle++;
         }
-
         board.set(positionX, positionY, symbol.getSymbol());
         return new Position(positionX, positionY);
-    }
+        }
 
 
     @Override
