@@ -1,8 +1,5 @@
 import java.sql.SQLOutput;
-import java.util.InputMismatchException;
-import java.util.NoSuchElementException;
-import java.util.Objects;
-import java.util.Scanner;
+import java.util.*;
 
 public class Player {
 

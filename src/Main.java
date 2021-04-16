@@ -2,24 +2,20 @@ import java.util.Scanner;
 
 public class Main {
 
-
-
     public Main() {
     }
 
     public static void main(String[] args) {
 
-        Initialization.player1 = new Player(Initialization.playerGetName(), new Symbol("|X|"));
-        Initialization.player2 = new Player(Initialization.playerGetName(), new Symbol("|O|"));
+        Initialization.declarePlayers();
         Board xoBoard = new Board(Initialization.boardGetSize());
+        Round round = new Round(Initialization.getNumberOfRounds());
         Judge xoJudge = new Judge();
-        Scanner scan = new Scanner(System.in);
-        Round round = new Round(Initialization.gameGetNumberOfRounds());
         Position position;
 
 
         while (!GameOver.gameOver) {
-            Player currentPlayer = Initialization.player1;
+            Player currentPlayer = Players.createdPlayersList.get(0);
             System.out.println(currentPlayer);
             position = currentPlayer.getMove(xoBoard);
             round.countMoves(xoBoard);
@@ -41,11 +37,14 @@ public class Main {
     }
 
     static Player switchPlayer(Player currentPlayer) {
-        if (currentPlayer.equals(Initialization.player1)) {
-            currentPlayer = Initialization.player2;
-        }
-        else {
-            currentPlayer = Initialization.player1;
+        int i = Players.createdPlayersList.indexOf(currentPlayer);
+        if (currentPlayer.equals(Players.createdPlayersList.get(i))) {
+            if (i == Players.createdPlayersList.size() - 1){
+                currentPlayer = Players.createdPlayersList.get(0);
+            }
+            else {
+                currentPlayer = Players.createdPlayersList.get(i + 1);
+            }
         }
         return currentPlayer;
     }

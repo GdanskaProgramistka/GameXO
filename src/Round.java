@@ -1,5 +1,3 @@
-
-
 public class Round {
 
     private final int numberOfRoundsInGame;
@@ -41,12 +39,12 @@ public class Round {
         else {
             if (moveInRound == maxRoundMoves) {
                 System.out.println("The round " + roundNumber + " is over. Nobody won this round.");
-                GameOver.checkWinner(Initialization.player1, Initialization.player2);
+                GameOver.checkWinner();
             }
             else {
                 System.out.println("The round " + roundNumber + " is end. The winner of this round is " + player);
                 player.win++;
-                GameOver.checkWinner(Initialization.player1, Initialization.player2);
+                GameOver.checkWinner();
             }
         }
     }

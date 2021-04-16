@@ -82,7 +82,7 @@ public class Judge {
         if (board.rows.get(currentPositionX).get(currentPositionY).equals(symbol)) {
             numberOfSymbols++;
             if (numberOfSymbols == numberOfWinningSymbols) {
-                System.out.println("You won the round! You have 3 symbols next to each other.");
+//                System.out.println("You won the round! You have 3 symbols next to each other.");
                 return true;
             }
         } else {
@@ -90,4 +90,8 @@ public class Judge {
         }
         return false;
     }
+
+//    public static void checkWinner(){
+//        Players.countWins();
+//    }
 }
