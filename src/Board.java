@@ -16,7 +16,7 @@ public class Board {
 
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                column.add("| |");
+                column.add(" ");
                 System.out.print(column.get(j));
             }
             rows.add(column);
@@ -28,7 +28,7 @@ public class Board {
     public void printBoard(){
         for (int i = 0; i < rows.size(); i++) {
             for (int j = 0; j < rows.get(i).size(); j++) {
-                System.out.print(rows.get(i).get(j));
+                System.out.print("|" + rows.get(i).get(j) + "|");
             }
             System.out.println();
         }
@@ -44,7 +44,7 @@ public class Board {
                 System.out.println("Position out of range. Please enter the correct position");
             return false;
         }
-        else if (!(rows.get(positionX).get(positionY).equals("| |"))) {
+        else if (!(rows.get(positionX).get(positionY).equals(" "))) {
             System.out.println("Position is already taken. Please enter the correct position");
             return false;
         } else {

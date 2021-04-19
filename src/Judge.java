@@ -3,7 +3,7 @@ import java.sql.SQLOutput;
 public class Judge {
 
     int numberOfSymbols;
-    int numberOfWinningSymbols = 3;
+    int numberOfWinningSymbols = Initialization.getNumberOfWinningSymbols();
     int currentPositionX;
     int currentPositionY;
 
